@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,7 +23,6 @@ import java.time.LocalDateTime;
 public class AdminViewController {
 
     private final StatisticsService statisticsService;
-
     private final BulkPassService bulkPassService;
     private final PackazeService packazeService;
     private final UserGroupMappingService userGroupMappingService;
@@ -41,5 +41,11 @@ public class AdminViewController {
         model.addAttribute("userGroupIds", userGroupMappingService.getAllUserGroupIds());
         model.addAttribute("request", new BulkPassRequest());
         return "admin/bulk-pass";
+    }
+
+    @PostMapping("/bulk-pass")
+    public String addBulkPass(BulkPassRequest request){
+        bulkPassService.addBulkPass(request);
+        return "redirect:/admin/bulk-pass";
     }
 }

@@ -18,6 +18,5 @@ public class BulkPassRequest {
 
     public void setStartedAt(String startedAtString) {
         this.startedAt = LocalDateTimeUtils.parse(startedAtString);
-
     }
 }

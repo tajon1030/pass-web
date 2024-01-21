@@ -1,6 +1,7 @@
 package com.fastcampus.passweb.service.pass;
 
 
+import com.fastcampus.passweb.controller.admin.BulkPassRequest;
 import com.fastcampus.passweb.repository.pass.BulkPass;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -16,5 +17,6 @@ public interface BulkPassMapper {
 
     List<BulkPassResponse> map(List<BulkPass> bulkPass);
 
+    BulkPass map(BulkPassRequest bulkPassRequest);
 
 }
