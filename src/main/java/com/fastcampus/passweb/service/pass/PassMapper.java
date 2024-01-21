@@ -14,7 +14,7 @@ import java.util.List;
 public interface PassMapper {
     PassMapper INSTANCE = Mappers.getMapper(PassMapper.class);
 
-    @Mapping(target = "packageName", source = "packaze.packageName")
+//    @Mapping(target = "packageName", source = "packaze.packageName")
     PassResponse map(Pass pass);
 
     List<PassResponse> map(List<Pass> pass);
