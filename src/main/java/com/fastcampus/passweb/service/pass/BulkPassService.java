@@ -26,6 +26,7 @@ public class BulkPassService {
         return bulkPassRepository.findAllOrderByStartedAtDesc();
     }
 
+    @Transactional
     public void addBulkPass(BulkPassRequest bulkPassRequest) {
         Packaze packaze = packazeRepository.findById(bulkPassRequest.getPackageSeq())
                 .orElseThrow();
